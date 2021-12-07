@@ -1,4 +1,4 @@
-//#include "AUTOSAR_Cfg.h"
+#include "AUTOSAR_Cfg.h"
 
 #define _ReSIM 0
 
