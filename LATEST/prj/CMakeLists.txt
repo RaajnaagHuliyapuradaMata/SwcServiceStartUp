@@ -19,6 +19,6 @@ add_library(
 )
 
 include_directories(
-   "${PROJECT_SOURCE_DIR}/../gen/"
+   "${PROJECT_SOURCE_DIR}/../../../../../gen/"
 )
 
