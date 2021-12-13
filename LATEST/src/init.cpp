@@ -1,4 +1,5 @@
-#include "AUTOSAR_Cfg.h"
+//#include "AUTOSAR_Cfg.h"
+#include "EcuM.h"
 
 #define _ReSIM 0
 
@@ -19,6 +20,8 @@ int main(
 //   std::cout<<argv[0]<<" Version: "<<AUTOSAR_VERSION_MAJOR<<"."<<AUTOSAR_VERSION_MINOR<<std::endl;
 #else
 #endif
+
+   EcuM.InitFunction();
 
    return e_Shutdown;
 }
