@@ -1,6 +1,8 @@
 //#include "AUTOSAR_Cfg.h"
 
 #include "Std_Types.h"
+#include "Compiler_Cfg_StartUp.h"
+
 #include "EcuM.h"
 
 #define _ReSIM 0
