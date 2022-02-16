@@ -3,7 +3,7 @@
 #include "Std_Types.h"
 #include "Compiler_Cfg_StartUp.h"
 
-#include "EcuM.h"
+#include "EcuM_StartUp.h"
 
 #define _ReSIM 0
 
@@ -25,7 +25,7 @@ int main(
 #else
 #endif
 
-   EcuM.InitFunction();
+   //StartUp_Client_ptr_EcuM->InitFunction();
 
    return e_Shutdown;
 }
