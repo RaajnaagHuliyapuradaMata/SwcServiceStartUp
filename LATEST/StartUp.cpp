@@ -20,9 +20,9 @@ class module_StartUp:
    ,  public interface_StartUp_SchM
 {
    public:
-      FUNC(void, BSWM_CODE) InitFunction   (void);
-      FUNC(void, BSWM_CODE) DeInitFunction (void);
-      FUNC(void, BSWM_CODE) MainFunction   (void);
+      FUNC(void, STARTUP_CODE) InitFunction   (void);
+      FUNC(void, STARTUP_CODE) DeInitFunction (void);
+      FUNC(void, STARTUP_CODE) MainFunction   (void);
 };
 
 module_StartUp StartUp;
@@ -30,13 +30,13 @@ module_StartUp StartUp;
 interface_StartUp_EcuM *EcuM_Client_ptr_StartUp = &StartUp;
 interface_StartUp_SchM *SchM_Client_ptr_StartUp = &StartUp;
 
-FUNC(void, BSWM_CODE) InitFunction(void){
+FUNC(void, STARTUP_CODE) InitFunction(void){
 }
 
-FUNC(void, BSWM_CODE) DeInitFunction(void){
+FUNC(void, STARTUP_CODE) DeInitFunction(void){
 }
 
-FUNC(void, BSWM_CODE) MainFunction(void){
+FUNC(void, STARTUP_CODE) MainFunction(void){
 }
 
 
@@ -51,7 +51,7 @@ int main(
 #else
 #endif
 
-   //StartUp_Client_ptr_EcuM->InitFunction();
+   StartUp_Client_ptr_EcuM->InitFunction();
 
    return e_Shutdown;
 }
