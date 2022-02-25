@@ -27,7 +27,7 @@ class interface_StartUp_SchM : public interface_SchM_Client{
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, STARTUP_CODE) MainFunction(void);
+      virtual FUNC(void, STARTUP_CODE) MainFunction(void) = 0;
 };
 
 /*****************************************************/

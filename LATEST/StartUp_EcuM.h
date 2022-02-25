@@ -27,8 +27,8 @@ class interface_StartUp_EcuM : public interface_EcuM_Client{
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, STARTUP_CODE) InitFunction   (void);
-      FUNC(void, STARTUP_CODE) DeInitFunction (void);
+      virtual FUNC(void, STARTUP_CODE) InitFunction   (void) = 0;
+      virtual FUNC(void, STARTUP_CODE) DeInitFunction (void) = 0;
 };
 
 /*****************************************************/

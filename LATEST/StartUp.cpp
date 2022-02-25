@@ -1,12 +1,29 @@
-//#include "AUTOSAR_Cfg.h"
+/*****************************************************/
+/* File   : StartUp.cpp                              */
+/* Author : Naagraaj HM                              */
+/*****************************************************/
+
+/*****************************************************/
+/* #INCLUDES                                         */
+/*****************************************************/
 #include "module.h"
 #include "StartUp_EcuM.h"
 #include "StartUp_SchM.h"
 
 #include "EcuM_StartUp.h"
 
+/*****************************************************/
+/* #DEFINES                                          */
+/*****************************************************/
 #define _ReSIM 0
 
+/*****************************************************/
+/* MACROS                                            */
+/*****************************************************/
+
+/*****************************************************/
+/* TYPEDEFS                                          */
+/*****************************************************/
 typedef enum{
       E_SHUTDOWN_NORMAL
    ,  E_SHUTDOWN_ABNORMAL
@@ -25,20 +42,33 @@ class module_StartUp:
       FUNC(void, STARTUP_CODE) MainFunction   (void);
 };
 
+/*****************************************************/
+/* CONSTS                                            */
+/*****************************************************/
+
+/*****************************************************/
+/* PARAMS                                            */
+/*****************************************************/
+
+/*****************************************************/
+/* OBJECTS                                           */
+/*****************************************************/
 module_StartUp StartUp;
 
 interface_StartUp_EcuM *EcuM_Client_ptr_StartUp = &StartUp;
 interface_StartUp_SchM *SchM_Client_ptr_StartUp = &StartUp;
 
-FUNC(void, STARTUP_CODE) InitFunction(void){
+/*****************************************************/
+/* FUNCTIONS                                         */
+/*****************************************************/
+FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(void){
 }
 
-FUNC(void, STARTUP_CODE) DeInitFunction(void){
+FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
 }
 
-FUNC(void, STARTUP_CODE) MainFunction(void){
+FUNC(void, STARTUP_CODE) module_StartUp::MainFunction(void){
 }
-
 
 int main(
 #if(_ReSIM == STD_ON)
@@ -55,4 +85,8 @@ int main(
 
    return e_Shutdown;
 }
+
+/*****************************************************/
+/* EOF                                               */
+/*****************************************************/
 
