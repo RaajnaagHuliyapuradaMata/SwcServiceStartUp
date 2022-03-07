@@ -4,11 +4,11 @@ add_library(
 )
 
 include_directories(
-   ../../BswAUTOSAR_Service_EcuM/LATEST
-   ../../BswAUTOSAR_Service_SchM/LATEST
    ../../common/LATEST
    ../../common/LATEST/Compiler_Abstraction_GNU/LATEST
    ../../SwcServiceEcuM/LATEST
    ../../SwcServiceOs/LATEST
+   ../../BswAUTOSAR_Service_EcuM/LATEST
+   ../../BswAUTOSAR_Service_SchM/LATEST
 )
 

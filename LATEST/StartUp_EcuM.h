@@ -9,8 +9,6 @@
 /*****************************************************/
 #include "Compiler_Cfg_StartUp.h"
 
-#include "EcuM_Client.h"
-
 /*****************************************************/
 /* #DEFINES                                          */
 /*****************************************************/
@@ -22,14 +20,6 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
-class interface_StartUp_EcuM : public interface_EcuM_Client{
-   public:
-/*****************************************************/
-/* FUNCTIONS                                         */
-/*****************************************************/
-      virtual FUNC(void, STARTUP_CODE) InitFunction   (void) = 0;
-      virtual FUNC(void, STARTUP_CODE) DeInitFunction (void) = 0;
-};
 
 /*****************************************************/
 /* CONSTS                                            */
@@ -42,7 +32,11 @@ class interface_StartUp_EcuM : public interface_EcuM_Client{
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern interface_StartUp_EcuM *EcuM_Client_ptr_StartUp;
+extern infEcuMClient *gptrinfEcuMClient_StartUp;
+
+/*****************************************************/
+/* FUNCTIONS                                         */
+/*****************************************************/
 
 /*****************************************************/
 /* EOF                                               */

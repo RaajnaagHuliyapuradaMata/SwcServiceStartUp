@@ -33,8 +33,6 @@ t_Shutdown e_Shutdown = E_SHUTDOWN_NORMAL;
 
 class module_StartUp:
       public abstract_module
-   ,  public interface_StartUp_EcuM
-   ,  public interface_StartUp_SchM
 {
    public:
       FUNC(void, STARTUP_CODE) InitFunction   (void);
@@ -54,9 +52,8 @@ class module_StartUp:
 /* OBJECTS                                           */
 /*****************************************************/
 module_StartUp StartUp;
-
-interface_StartUp_EcuM *EcuM_Client_ptr_StartUp = &StartUp;
-interface_StartUp_SchM *SchM_Client_ptr_StartUp = &StartUp;
+infEcuMClient* gptrinfEcuMClient_StartUp = &StartUp;
+infSchMClient* gptrinfSchMClient_StartUp = &StartUp;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
