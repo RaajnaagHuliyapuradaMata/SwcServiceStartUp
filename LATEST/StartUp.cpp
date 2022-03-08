@@ -78,7 +78,7 @@ int main(
 #else
 #endif
 
-   StartUp_Client_ptr_EcuM->InitFunction();
+   gptrinfEcuMClient_EcuM->InitFunction();
 
    return e_Shutdown;
 }
