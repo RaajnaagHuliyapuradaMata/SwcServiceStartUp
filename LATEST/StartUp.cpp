@@ -7,8 +7,8 @@
 /* #INCLUDES                                         */
 /*****************************************************/
 #include "module.h"
-#include "StartUp_EcuM.h"
-#include "StartUp_SchM.h"
+#include "infStartUp_EcuM.h"
+#include "infStartUp_SchM.h"
 
 #include "EcuM_StartUp.h"
 
@@ -37,6 +37,7 @@ class module_StartUp:
    public:
       FUNC(void, STARTUP_CODE) InitFunction   (void);
       FUNC(void, STARTUP_CODE) DeInitFunction (void);
+      FUNC(void, STARTUP_CODE) GetVersionInfo (void);
       FUNC(void, STARTUP_CODE) MainFunction   (void);
 };
 
@@ -53,6 +54,7 @@ class module_StartUp:
 /*****************************************************/
 module_StartUp StartUp;
 infEcuMClient* gptrinfEcuMClient_StartUp = &StartUp;
+infDcmClient*  gptrinfDcmClient_StartUp  = &StartUp;
 infSchMClient* gptrinfSchMClient_StartUp = &StartUp;
 
 /*****************************************************/
@@ -62,6 +64,9 @@ FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(void){
 }
 
 FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
+}
+
+FUNC(void, STARTUP_CODE) module_StartUp::GetVersionInfo(void){
 }
 
 FUNC(void, STARTUP_CODE) module_StartUp::MainFunction(void){
