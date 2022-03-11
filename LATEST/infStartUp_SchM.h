@@ -1,6 +1,6 @@
 #pragma once
 /*****************************************************/
-/* File   : StartUp_EcuM.h                           */
+/* File   : infStartUp_SchM.h                        */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
@@ -32,7 +32,7 @@
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern infEcuMClient* gptrinfEcuMClient_StartUp;
+extern infSchMClient* gptrinfSchMClient_StartUp;
 
 /*****************************************************/
 /* FUNCTIONS                                         */

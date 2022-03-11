@@ -1,20 +1,17 @@
+#pragma once
 /*****************************************************/
-/* File   : StartUp.cpp                              */
+/* File   : infStartUp_EcuM.h                        */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
 /*****************************************************/
 /* #INCLUDES                                         */
 /*****************************************************/
-#include "module.h"
-#include "infStartUp_EcuM.h"
-#include "infStartUp_Dcm.h"
-#include "infStartUp_SchM.h"
+#include "Compiler_Cfg_StartUp.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
 /*****************************************************/
-#define _ReSIM 0
 
 /*****************************************************/
 /* MACROS                                            */
@@ -23,15 +20,6 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
-class module_StartUp:
-      public abstract_module
-{
-   public:
-      FUNC(void, STARTUP_CODE) InitFunction   (void);
-      FUNC(void, STARTUP_CODE) DeInitFunction (void);
-      FUNC(void, STARTUP_CODE) GetVersionInfo (void);
-      FUNC(void, STARTUP_CODE) MainFunction   (void);
-};
 
 /*****************************************************/
 /* CONSTS                                            */
@@ -44,50 +32,11 @@ class module_StartUp:
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-module_StartUp StartUp;
-infEcuMClient* gptrinfEcuMClient_StartUp = &StartUp;
-infDcmClient*  gptrinfDcmClient_StartUp  = &StartUp;
-infSchMClient* gptrinfSchMClient_StartUp = &StartUp;
+extern infEcuMClient* gptrinfEcuMClient_StartUp;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(void){
-}
-
-FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
-}
-
-FUNC(void, STARTUP_CODE) module_StartUp::GetVersionInfo(void){
-}
-
-FUNC(void, STARTUP_CODE) module_StartUp::MainFunction(void){
-}
-
-typedef enum{
-      E_SHUTDOWN_NORMAL
-   ,  E_SHUTDOWN_ABNORMAL
-}t_Shutdown;
-
-t_Shutdown e_Shutdown = E_SHUTDOWN_NORMAL;
-
-#include "infEcuM_StartUp.h"
-
-int main(
-#if(_ReSIM == STD_ON)
-#else
-   void
-#endif
-){
-#if(_ReSIM == STD_ON)
-//   std::cout<<argv[0]<<" Version: "<<AUTOSAR_VERSION_MAJOR<<"."<<AUTOSAR_VERSION_MINOR<<std::endl;
-#else
-#endif
-
-   gptrinfEcuMClient_EcuM->InitFunction();
-
-   return e_Shutdown;
-}
 
 /*****************************************************/
 /* EOF                                               */
