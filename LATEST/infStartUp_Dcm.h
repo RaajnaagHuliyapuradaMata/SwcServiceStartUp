@@ -32,7 +32,7 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-extern infDcmClient* gptrinfDcmClient_StartUp;
+extern CONSTP2VAR(infDcmClient, STARTUP_VAR, STARTUP_CONST) gptrinfDcmClient_StartUp;
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
