@@ -6,6 +6,8 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "infStartUp_Version.h"
+
 #include "module.h"
 #include "infStartUp_EcuM.h"
 #include "infStartUp_Dcm.h"
