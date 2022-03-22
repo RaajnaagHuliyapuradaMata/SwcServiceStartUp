@@ -7,7 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.h"
-#include "infStartUp_Version.h"
+//#include "StartUp_Cfg.h"
 #include "infStartUp_EcuM.h"
 #include "infStartUp_Dcm.h"
 #include "infStartUp_SchM.h"
@@ -15,11 +15,20 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define _ReSIM 0
+#define _ReSIM                                                                 0
+#define STARTUP_AR_RELEASE_MAJOR_VERSION                                       4
+#define STARTUP_AR_RELEASE_MINOR_VERSION                                       3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
+#if(STARTUP_AR_RELEASE_MAJOR_VERSION != STD_AR_RELEASE_MAJOR_VERSION)
+   #error "Incompatible STARTUP_AR_RELEASE_MAJOR_VERSION!"
+#endif
+
+#if(STARTUP_AR_RELEASE_MINOR_VERSION != STD_AR_RELEASE_MINOR_VERSION)
+   #error "Incompatible STARTUP_AR_RELEASE_MINOR_VERSION!"
+#endif
 
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
@@ -62,6 +71,11 @@ FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
 }
 
 FUNC(void, STARTUP_CODE) module_StartUp::GetVersionInfo(void){
+#if(STD_ON == StartUp_DevErrorDetect)
+//TBD: API parameter check
+   Det_ReportError(
+   );
+#endif
 }
 
 FUNC(void, STARTUP_CODE) module_StartUp::MainFunction(void){
