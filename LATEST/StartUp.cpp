@@ -7,7 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.h"
-//#include "StartUp_Cfg.h"
+//#include "CfgStartUp.h"
 #include "infStartUp_EcuM.h"
 #include "infStartUp_Dcm.h"
 #include "infStartUp_SchM.h"
