@@ -6,11 +6,11 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "module.h"
-//#include "CfgStartUp.h"
-#include "infStartUp_EcuM.h"
-#include "infStartUp_Dcm.h"
-#include "infStartUp_SchM.h"
+#include "module.hpp"
+//#include "CfgStartUp.hpp"
+#include "infStartUp_EcuM.hpp"
+#include "infStartUp_Dcm.hpp"
+#include "infStartUp_SchM.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -98,7 +98,7 @@ typedef enum{
 
 t_Shutdown e_Shutdown = E_SHUTDOWN_NORMAL;
 
-#include "infEcuM_StartUp.h"
+#include "infEcuM_StartUp.hpp"
 
 int main(
 #if(_ReSIM == STD_ON)
