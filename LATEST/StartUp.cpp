@@ -6,7 +6,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "module.hpp"
+#include "Module.hpp"
 #include "infStartUp_EcuM.hpp"
 #include "infStartUp_Dcm.hpp"
 #include "infStartUp_SchM.hpp"
@@ -37,6 +37,9 @@ class module_StartUp:
    public:
       module_StartUp(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
       }
+      FUNC(void, _CODE) InitFunction(
+         CONSTP2CONST(CfgModule_TypeAbstract, _CONFIG_DATA, _APPL_CONST) lptrCfgModule
+      );
       FUNC(void, STARTUP_CODE) InitFunction   (void);
       FUNC(void, STARTUP_CODE) DeInitFunction (void);
       FUNC(void, STARTUP_CODE) MainFunction   (void);
@@ -73,7 +76,19 @@ VAR(module_StartUp, STARTUP_VAR) StartUp(
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(void){
+FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
+   CONSTP2CONST(CfgStartUp_Type, CFGSTARTUP_CONFIG_DATA, CFGSTARTUP_APPL_CONST) lptrCfgStartUp
+){
+   if(NULL_PTR == lptrCfgStartUp){
+#if(STD_ON == StartUp_DevErrorDetect)
+      Det_ReportError(
+      );
+#endif
+   }
+   else{
+// check lptrCfgStartUp for memory faults
+// use PBcfg_StartUp as back-up configuration
+   }
    StartUp.IsInitDone = E_OK;
 }
 
