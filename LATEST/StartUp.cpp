@@ -37,10 +37,9 @@ class module_StartUp:
    public:
       module_StartUp(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
       }
-      FUNC(void, _CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, _CONFIG_DATA, _APPL_CONST) lptrCfgModule
+      FUNC(void, STARTUP_CODE) InitFunction(
+         CONSTP2CONST(CfgModule_TypeAbstract, STARTUP_CONFIG_DATA, STARTUP_APPL_CONST) lptrCfgModule
       );
-      FUNC(void, STARTUP_CODE) InitFunction   (void);
       FUNC(void, STARTUP_CODE) DeInitFunction (void);
       FUNC(void, STARTUP_CODE) MainFunction   (void);
 };
@@ -77,23 +76,39 @@ VAR(module_StartUp, STARTUP_VAR) StartUp(
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
-   CONSTP2CONST(CfgStartUp_Type, CFGSTARTUP_CONFIG_DATA, CFGSTARTUP_APPL_CONST) lptrCfgStartUp
+   CONSTP2CONST(CfgModule_TypeAbstract, STARTUP_CONFIG_DATA, STARTUP_APPL_CONST) lptrCfgModule
 ){
-   if(NULL_PTR == lptrCfgStartUp){
+   if(E_OK == IsInitDone){
 #if(STD_ON == StartUp_DevErrorDetect)
       Det_ReportError(
       );
 #endif
    }
    else{
-// check lptrCfgStartUp for memory faults
+      if(NULL_PTR == lptrCfgModule){
+#if(STD_ON == StartUp_DevErrorDetect)
+         Det_ReportError(
+         );
+#endif
+      }
+      else{
+// check lptrCfgModule for memory faults
 // use PBcfg_StartUp as back-up configuration
+      }
+      IsInitDone = E_OK;
    }
-   StartUp.IsInitDone = E_OK;
 }
 
 FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
-   StartUp.IsInitDone = E_NOT_OK;
+   if(E_OK != IsInitDone){
+#if(STD_ON == StartUp_DevErrorDetect)
+      Det_ReportError(
+      );
+#endif
+   }
+   else{
+      IsInitDone = E_NOT_OK;
+   }
 }
 
 FUNC(void, STARTUP_CODE) module_StartUp::MainFunction(void){
@@ -121,7 +136,7 @@ int main(
 #else
 #endif
 
-   gptrinfEcuMClient_EcuM->InitFunction();
+   gptrinfEcuM_StartUp->InitFunction();
 
    return e_Shutdown;
 }
