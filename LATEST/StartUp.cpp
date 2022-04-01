@@ -78,6 +78,7 @@ VAR(module_StartUp, STARTUP_VAR) StartUp(
 FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
    CONSTP2CONST(CfgModule_TypeAbstract, STARTUP_CONFIG_DATA, STARTUP_APPL_CONST) lptrCfgModule
 ){
+#if(STD_ON == StartUp_InitCheck)
    if(E_OK == IsInitDone){
 #if(STD_ON == StartUp_DevErrorDetect)
       Det_ReportError(
@@ -85,6 +86,7 @@ FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
 #endif
    }
    else{
+#endif
       if(NULL_PTR == lptrCfgModule){
 #if(STD_ON == StartUp_DevErrorDetect)
          Det_ReportError(
@@ -96,10 +98,13 @@ FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
 // use PBcfg_StartUp as back-up configuration
       }
       IsInitDone = E_OK;
+#if(STD_ON == StartUp_InitCheck)
    }
+#endif
 }
 
 FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
+#if(STD_ON == StartUp_InitCheck)
    if(E_OK != IsInitDone){
 #if(STD_ON == StartUp_DevErrorDetect)
       Det_ReportError(
@@ -107,11 +112,26 @@ FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
 #endif
    }
    else{
+#endif
       IsInitDone = E_NOT_OK;
+#if(STD_ON == StartUp_InitCheck)
    }
+#endif
 }
 
 FUNC(void, STARTUP_CODE) module_StartUp::MainFunction(void){
+#if(STD_ON == StartUp_InitCheck)
+   if(E_OK != IsInitDone){
+#if(STD_ON == StartUp_DevErrorDetect)
+      Det_ReportError(
+      );
+#endif
+   }
+   else{
+#endif
+#if(STD_ON == StartUp_InitCheck)
+   }
+#endif
 }
 
 typedef enum{
