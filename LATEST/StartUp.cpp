@@ -143,15 +143,15 @@ t_Shutdown e_Shutdown = E_SHUTDOWN_NORMAL;
 
 #include "infEcuM_StartUp.hpp"
 
-#define _ReSIM                                                                 0
+#define _ReSIM                                                           STD_OFF
 
 int main(
-#if(_ReSIM == STD_ON)
+#if(STD_ON == _ReSIM)
 #else
    void
 #endif
 ){
-#if(_ReSIM == STD_ON)
+#if(STD_ON == _ReSIM)
 //   std::cout<<argv[0]<<" Version: "<<AUTOSAR_VERSION_MAJOR<<"."<<AUTOSAR_VERSION_MINOR<<std::endl;
 #else
 #endif
