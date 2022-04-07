@@ -96,8 +96,14 @@ FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
 #endif
       }
       else{
+         if(STD_LOW){
 // check lptrCfgModule for memory faults
-// use PBcfg_StartUp as back-up configuration
+            lptrCfg = lptrCfgModule;
+         }
+         else{
+// use PBcfg_CanIf as back-up configuration
+            lptrCfg = PBcfg_CanIf;
+         }
       }
       IsInitDone = E_OK;
 #if(STD_ON == StartUp_InitCheck)
