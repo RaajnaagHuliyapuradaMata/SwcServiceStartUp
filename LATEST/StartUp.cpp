@@ -56,7 +56,7 @@ CONSTP2VAR(infSchMClient, STARTUP_VAR, STARTUP_CONST) gptrinfSchMClient_StartUp 
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
-//#include "CfgStartUp.hpp"
+#include "CfgStartUp.hpp"
 
 /******************************************************************************/
 /* OBJECTS                                                                    */
@@ -151,8 +151,6 @@ t_Shutdown e_Shutdown = E_SHUTDOWN_NORMAL;
 
 #include "infEcuM_StartUp.hpp"
 
-#define _ReSIM                                                           STD_OFF
-
 int main(
 #if(STD_ON == _ReSIM)
 #else
@@ -160,6 +158,7 @@ int main(
 #endif
 ){
 #if(STD_ON == _ReSIM)
+ERROR
 //   std::cout<<argv[0]<<" Version: "<<AUTOSAR_VERSION_MAJOR<<"."<<AUTOSAR_VERSION_MINOR<<std::endl;
 #else
 #endif
