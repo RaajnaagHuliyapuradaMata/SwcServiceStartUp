@@ -151,19 +151,38 @@ t_Shutdown e_Shutdown = E_SHUTDOWN_NORMAL;
 
 #include "infEcuM_StartUp.hpp"
 
+#if(STD_ON == _ReSIM)
+#include <iostream>
+#include <fstream>
+using namespace std;
+using namespace ios;
+#else
+#endif
+
 int main(
 #if(STD_ON == _ReSIM)
+      int   argc
+   ,  char* argv[]
 #else
    void
 #endif
 ){
 #if(STD_ON == _ReSIM)
-ERROR
-//   std::cout<<argv[0]<<" Version: "<<AUTOSAR_VERSION_MAJOR<<"."<<AUTOSAR_VERSION_MINOR<<std::endl;
+   if(1 >= argc){
+      std::cout<<"USAGE: TBD"<<std::endl;
+   }
+   else{
+      std::cout<<argv[0]<<" Version: "<<STARTUP_AR_RELEASE_VERSION_MAJOR<<"."<<STARTUP_AR_RELEASE_VERSION_MINOR<<std::endl;
+      std::ifstream fin(
+            argv[1]
+         ,  ios::in
+      );
+      fin.close();
+   }
 #else
 #endif
 
-   gptrinfEcuM_StartUp->InitFunction();
+//   gptrinfEcuM_StartUp->InitFunction();
 
    return e_Shutdown;
 }
