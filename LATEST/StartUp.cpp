@@ -155,7 +155,7 @@ t_Shutdown e_Shutdown = E_SHUTDOWN_NORMAL;
 #include <iostream>
 #include <fstream>
 using namespace std;
-using namespace ios;
+using std::ios;
 #else
 #endif
 
