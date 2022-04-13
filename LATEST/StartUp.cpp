@@ -168,15 +168,23 @@ int main(
 #endif
 ){
 #if(STD_ON == _ReSIM)
-   if(1 >= argc){
+   if(0 >= argc){
       std::cout<<"USAGE: TBD"<<std::endl;
    }
    else{
       std::cout<<argv[0]<<" Version: "<<STARTUP_AR_RELEASE_VERSION_MAJOR<<"."<<STARTUP_AR_RELEASE_VERSION_MINOR<<std::endl;
+
       std::ifstream fin(
-            argv[1]
+            "fee.hex" //argv[1]
          ,  ios::in
       );
+
+      while(fin){
+         string line;
+         getline(fin, line);
+         cout<<line<<endl;
+      }
+
       fin.close();
    }
 #else
