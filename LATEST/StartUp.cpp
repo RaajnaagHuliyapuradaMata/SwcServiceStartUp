@@ -153,9 +153,7 @@ t_Shutdown e_Shutdown = E_SHUTDOWN_NORMAL;
 
 #if(STD_ON == _ReSIM)
 #include <iostream>
-#include <fstream>
 using namespace std;
-using std::ios;
 #else
 #endif
 
@@ -173,24 +171,11 @@ int main(
    }
    else{
       std::cout<<argv[0]<<" Version: "<<STARTUP_AR_RELEASE_VERSION_MAJOR<<"."<<STARTUP_AR_RELEASE_VERSION_MINOR<<std::endl;
-
-      std::ifstream fin(
-            "fee.hex" //argv[1]
-         ,  ios::in
-      );
-
-      while(fin){
-         string line;
-         getline(fin, line);
-         cout<<line<<endl;
-      }
-
-      fin.close();
    }
 #else
 #endif
 
-//   gptrinfEcuM_StartUp->InitFunction();
+   gptrinfEcuM_StartUp->InitFunction();
 
    return e_Shutdown;
 }
