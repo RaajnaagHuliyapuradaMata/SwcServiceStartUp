@@ -182,7 +182,7 @@ int main(
 #else
 #endif
 
-//   gptrinfEcuM_StartUp->InitFunction();
+   gptrinfEcuM_StartUp->InitFunction();
 
    return e_Shutdown;
 }
