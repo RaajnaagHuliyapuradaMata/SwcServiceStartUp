@@ -7,10 +7,9 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
+#include "CfgStartUp.hpp"
 #include "StartUp_core.hpp"
-#include "infStartUp_EcuM.hpp"
-#include "infStartUp_Dcm.hpp"
-#include "infStartUp_SchM.hpp"
+#include "infStartUp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -34,6 +33,7 @@
 /******************************************************************************/
 class module_StartUp:
       public abstract_module
+   ,  public class_StartUp_Functionality
 {
    public:
       module_StartUp(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
@@ -43,6 +43,7 @@ class module_StartUp:
       );
       FUNC(void, STARTUP_CODE) DeInitFunction (void);
       FUNC(void, STARTUP_CODE) MainFunction   (void);
+      STARTUP_CORE_FUNCTIONALITIES
 };
 
 extern VAR(module_StartUp, STARTUP_VAR) StartUp;
@@ -57,7 +58,6 @@ CONSTP2VAR(infSchMClient, STARTUP_VAR, STARTUP_CONST) gptrinfSchMClient_StartUp 
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
-#include "CfgStartUp.hpp"
 
 /******************************************************************************/
 /* OBJECTS                                                                    */
