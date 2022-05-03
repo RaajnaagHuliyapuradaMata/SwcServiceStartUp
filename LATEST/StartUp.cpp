@@ -82,79 +82,79 @@ FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
    CONSTP2CONST(CfgModule_TypeAbstract, STARTUP_CONFIG_DATA, STARTUP_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == StartUp_InitCheck)
-   if(E_OK == IsInitDone){
-#if(STD_ON == StartUp_DevErrorDetect)
-      Det_ReportError(
-      0 //TBD: IdModule
-   ,  0 //TBD: IdInstance
-   ,  0 //TBD: IdApi
-   ,  0 //TBD: IdError
-      );
+   if(E_OK != IsInitDone){
 #endif
-   }
-   else{
-#endif
-      if(NULL_PTR == lptrCfgModule){
-#if(STD_ON == StartUp_DevErrorDetect)
-         Det_ReportError(
-      0 //TBD: IdModule
-   ,  0 //TBD: IdInstance
-   ,  0 //TBD: IdApi
-   ,  0 //TBD: IdError
-         );
-#endif
-      }
-      else{
+      if(NULL_PTR != lptrCfgModule){
          if(STD_LOW){
-// check lptrCfgModule for memory faults
+            // check lptrCfgModule for memory faults
             lptrCfg = lptrCfgModule;
          }
          else{
-// use PBcfgCanIf as back-up configuration
+            // use PBcfgCanIf as back-up configuration
 //            lptrCfg = &PBcfgStartUp;
          }
       }
-      IsInitDone = E_OK;
+      else{
+#if(STD_ON == StartUp_DevErrorDetect)
+         Det_ReportError(
+               0 //TBD: IdModule
+            ,  0 //TBD: IdInstance
+            ,  0 //TBD: IdApi
+            ,  0 //TBD: IdError
+         );
+#endif
+      }
 #if(STD_ON == StartUp_InitCheck)
+      IsInitDone = E_OK;
+   }
+   else{
+#if(STD_ON == StartUp_DevErrorDetect)
+      Det_ReportError(
+            0 //TBD: IdModule
+         ,  0 //TBD: IdInstance
+         ,  0 //TBD: IdApi
+         ,  0 //TBD: IdError
+      );
+#endif
    }
 #endif
 }
 
 FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
 #if(STD_ON == StartUp_InitCheck)
-   if(E_OK != IsInitDone){
-#if(STD_ON == StartUp_DevErrorDetect)
-      Det_ReportError(
-      0 //TBD: IdModule
-   ,  0 //TBD: IdInstance
-   ,  0 //TBD: IdApi
-   ,  0 //TBD: IdError
-      );
+   if(E_OK == IsInitDone){
 #endif
+#if(STD_ON == StartUp_InitCheck)
+      IsInitDone = E_NOT_OK;
    }
    else{
+#if(STD_ON == StartUp_DevErrorDetect)
+      Det_ReportError(
+            0 //TBD: IdModule
+         ,  0 //TBD: IdInstance
+         ,  0 //TBD: IdApi
+         ,  0 //TBD: IdError
+      );
 #endif
-      IsInitDone = E_NOT_OK;
-#if(STD_ON == StartUp_InitCheck)
    }
 #endif
 }
 
 FUNC(void, STARTUP_CODE) module_StartUp::MainFunction(void){
 #if(STD_ON == StartUp_InitCheck)
-   if(E_OK != IsInitDone){
-#if(STD_ON == StartUp_DevErrorDetect)
-      Det_ReportError(
-      0 //TBD: IdModule
-   ,  0 //TBD: IdInstance
-   ,  0 //TBD: IdApi
-   ,  0 //TBD: IdError
-      );
-#endif
-   }
-   else{
+   if(E_OK == IsInitDone){
 #endif
 #if(STD_ON == StartUp_InitCheck)
+   }
+   else{
+#if(STD_ON == StartUp_DevErrorDetect)
+      Det_ReportError(
+            0 //TBD: IdModule
+         ,  0 //TBD: IdInstance
+         ,  0 //TBD: IdApi
+         ,  0 //TBD: IdError
+      );
+#endif
    }
 #endif
 }
