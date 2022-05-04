@@ -113,7 +113,7 @@ FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  0 //TBD: IdError
+         ,  STARTUP_E_UNINIT
       );
 #endif
    }
@@ -133,7 +133,7 @@ FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  0 //TBD: IdError
+         ,  STARTUP_E_UNINIT
       );
 #endif
    }
@@ -152,7 +152,7 @@ FUNC(void, STARTUP_CODE) module_StartUp::MainFunction(void){
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  0 //TBD: IdError
+         ,  STARTUP_E_UNINIT
       );
 #endif
    }
