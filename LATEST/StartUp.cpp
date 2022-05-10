@@ -89,7 +89,10 @@ FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
    CONSTP2CONST(CfgModule_TypeAbstract, STARTUP_CONFIG_DATA, STARTUP_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == StartUp_InitCheck)
-   if(E_OK != IsInitDone){
+   if(
+         E_OK
+      != IsInitDone
+   ){
 #endif
       if(NULL_PTR != lptrCfgModule){
          if(STD_HIGH){
@@ -127,7 +130,10 @@ FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
 
 FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
 #if(STD_ON == StartUp_InitCheck)
-   if(E_OK == IsInitDone){
+   if(
+         E_OK
+      == IsInitDone
+   ){
 #endif
 #if(STD_ON == StartUp_InitCheck)
       IsInitDone = E_NOT_OK;
@@ -147,7 +153,10 @@ FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
 
 FUNC(void, STARTUP_CODE) module_StartUp::MainFunction(void){
 #if(STD_ON == StartUp_InitCheck)
-   if(E_OK == IsInitDone){
+   if(
+         E_OK
+      == IsInitDone
+   ){
 #endif
 #if(STD_ON == StartUp_InitCheck)
    }
