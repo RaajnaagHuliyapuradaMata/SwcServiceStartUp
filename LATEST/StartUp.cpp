@@ -9,7 +9,7 @@
 #include "Module.hpp"
 #include "CfgStartUp.hpp"
 #include "StartUp_core.hpp"
-#include "infStartUp.hpp"
+#include "infStartUp_Exp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -32,6 +32,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_StartUp:
+   INTERFACES_EXPORTED_STARTUP
       public abstract_module
    ,  public class_StartUp_Functionality
 {
