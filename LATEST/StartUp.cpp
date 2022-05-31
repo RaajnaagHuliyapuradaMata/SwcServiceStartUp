@@ -32,7 +32,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_StartUp:
-   INTERFACES_EXPORTED_STARTUP
+      INTERFACES_EXPORTED_STARTUP
       public abstract_module
    ,  public class_StartUp_Functionality
 {
