@@ -199,10 +199,10 @@ int main(
 ){
 #if(STD_ON == _ReSIM)
    if(0 >= argc){
-      std::cout<<"USAGE: TBD"<<std::endl;
+      cout<<"USAGE: TBD"<<endl;
    }
    else{
-      std::cout<<argv[0]<<" Version: "<<STARTUP_AR_RELEASE_VERSION_MAJOR<<"."<<STARTUP_AR_RELEASE_VERSION_MINOR<<std::endl;
+      cout<<endl<<argv[0]<<" Version: R"<<STARTUP_AR_RELEASE_VERSION_MAJOR<<"."<<STARTUP_AR_RELEASE_VERSION_MINOR;
    }
 #else
 #endif
