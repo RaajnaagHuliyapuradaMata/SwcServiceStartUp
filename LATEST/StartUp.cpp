@@ -74,7 +74,7 @@ CONSTP2VAR(infSchMClient, STARTUP_VAR, STARTUP_CONST) gptrinfSchMClient_StartUp 
 VAR(module_StartUp, STARTUP_VAR) StartUp(
    {
 #if(STD_ON == _ReSIM)
-// char strModuleName[6];
+   char strModuleName[6] = "INIT";
 #else
 #endif
          STARTUP_AR_RELEASE_VERSION_MAJOR
