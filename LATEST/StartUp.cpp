@@ -74,10 +74,10 @@ CONSTP2VAR(infSchMClient, STARTUP_VAR, STARTUP_CONST) gptrinfSchMClient_StartUp 
 VAR(module_StartUp, STARTUP_VAR) StartUp(
    {
 #if(STD_ON == _ReSIM)
-         "StartUp"
+         "StartUp",
 #else
 #endif
-      ,  STARTUP_AR_RELEASE_VERSION_MAJOR
+         STARTUP_AR_RELEASE_VERSION_MAJOR
       ,  STARTUP_AR_RELEASE_VERSION_MINOR
       ,  0x00
       ,  0xFF
