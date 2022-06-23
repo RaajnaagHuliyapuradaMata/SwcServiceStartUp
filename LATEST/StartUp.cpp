@@ -130,7 +130,9 @@ FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
 #endif
 }
 
-FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
+FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(
+   void
+){
 #if(STD_ON == StartUp_InitCheck)
    if(
          E_OK
@@ -153,7 +155,9 @@ FUNC(void, STARTUP_CODE) module_StartUp::DeInitFunction(void){
 #endif
 }
 
-FUNC(void, STARTUP_CODE) module_StartUp::MainFunction(void){
+FUNC(void, STARTUP_CODE) module_StartUp::MainFunction(
+   void
+){
 #if(STD_ON == StartUp_InitCheck)
    if(
          E_OK
