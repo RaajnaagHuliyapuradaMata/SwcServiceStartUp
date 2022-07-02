@@ -82,12 +82,7 @@ FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
    ){
 #endif
       if(NULL_PTR != lptrCfgModule){
-         if(STD_HIGH){
-            lptrCfg = lptrCfgModule;
-         }
-         else{
-            lptrCfg = &PBcfgStartUp;
-         }
+         lptrCfg = lptrCfgModule;
       }
       else{
 #if(STD_ON == StartUp_DevErrorDetect)
