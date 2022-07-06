@@ -7,9 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
-#include "CfgStartUp.hpp"
-#include "StartUp_core.hpp"
-#include "infStartUp_Exp.hpp"
+#include "StartUp.hpp"
 #include "infStartUp_Imp.hpp"
 
 /******************************************************************************/
@@ -32,26 +30,6 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class module_StartUp:
-      INTERFACES_EXPORTED_STARTUP
-      public abstract_module
-   ,  public class_StartUp_Functionality
-{
-   private:
-/******************************************************************************/
-/* OBJECTS                                                                    */
-/******************************************************************************/
-
-   public:
-      FUNC(void, STARTUP_CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, STARTUP_CONFIG_DATA, STARTUP_APPL_CONST) lptrCfgModule
-      );
-      FUNC(void, STARTUP_CODE) DeInitFunction (void);
-      FUNC(void, STARTUP_CODE) MainFunction   (void);
-      STARTUP_CORE_FUNCTIONALITIES
-};
-
-extern VAR(module_StartUp, STARTUP_VAR) StartUp;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
