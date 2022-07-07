@@ -8,9 +8,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "infStartUp_EcuM.hpp"
-#include "infStartUp_Dcm.hpp"
 #include "infStartUp_Det.hpp"
-#include "infStartUp_SchM.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
