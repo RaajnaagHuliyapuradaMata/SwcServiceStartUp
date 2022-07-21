@@ -167,7 +167,7 @@ int main(
 #else
 #endif
 
-   gptrinfEcuM_StartUp->InitFunction();
+   ((CfgStartUp_Type*)lptrCfg)->ptrinfEcuM_StartUp->InitFunction();
 
    return e_Shutdown;
 }
