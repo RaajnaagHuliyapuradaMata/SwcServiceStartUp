@@ -141,7 +141,7 @@ typedef enum{
 
 t_Shutdown e_Shutdown = E_SHUTDOWN_NORMAL;
 
-#include "infEcuM_StartUp.hpp"
+#include "EcuM.hpp"
 
 #if(STD_ON == _ReSIM)
 #include <iostream>
@@ -167,7 +167,7 @@ int main(
 #else
 #endif
 
-   ((CfgStartUp_Type*)lptrCfg)->ptrinfEcuM_StartUp->InitFunction();
+   EcuM.InitFunction();
 
    return e_Shutdown;
 }
