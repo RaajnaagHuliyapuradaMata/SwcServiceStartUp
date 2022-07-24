@@ -7,6 +7,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "ConstStartUp.hpp"
 #include "CfgStartUp.hpp"
 #include "StartUp_core.hpp"
 #include "infStartUp_Exp.hpp"
@@ -31,13 +32,15 @@ class module_StartUp:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
+      const ConstStartUp_Type* lptrConst = (ConstStartUp_Type*)NULL_PTR;
 
    public:
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
       FUNC(void, STARTUP_CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, STARTUP_CONFIG_DATA, STARTUP_APPL_CONST) lptrCfgModule
+            CONSTP2CONST(ConstModule_TypeAbstract, STARTUP_CONST,       STARTUP_APPL_CONST) lptrConstModule
+         ,  CONSTP2CONST(CfgModule_TypeAbstract,   STARTUP_CONFIG_DATA, STARTUP_APPL_CONST) lptrCfgModule
       );
       FUNC(void, STARTUP_CODE) DeInitFunction (void);
       FUNC(void, STARTUP_CODE) MainFunction   (void);

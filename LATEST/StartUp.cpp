@@ -48,7 +48,8 @@ VAR(module_StartUp, STARTUP_VAR) StartUp;
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
-   CONSTP2CONST(CfgModule_TypeAbstract, STARTUP_CONFIG_DATA, STARTUP_APPL_CONST) lptrCfgModule
+      CONSTP2CONST(ConstModule_TypeAbstract, STARTUP_CONST,       STARTUP_APPL_CONST) lptrConstModule
+   ,  CONSTP2CONST(CfgModule_TypeAbstract,   STARTUP_CONFIG_DATA, STARTUP_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == StartUp_InitCheck)
    if(
@@ -56,8 +57,12 @@ FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
       != IsInitDone
    ){
 #endif
-      if(NULL_PTR != lptrCfgModule){
-         lptrCfg = lptrCfgModule;
+      if(
+            (NULL_PTR != lptrConstModule)
+         && (NULL_PTR != lptrCfgModule)
+      ){
+         lptrConst = lptrConstModule;
+         lptrCfg   = lptrCfgModule;
       }
       else{
 #if(STD_ON == StartUp_DevErrorDetect)
