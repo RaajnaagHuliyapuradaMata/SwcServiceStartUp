@@ -61,7 +61,7 @@ FUNC(void, STARTUP_CODE) module_StartUp::InitFunction(
             (NULL_PTR != lptrConstModule)
          && (NULL_PTR != lptrCfgModule)
       ){
-         lptrConst = lptrConstModule;
+         lptrConst = (const ConstStartUp_Type*)lptrConstModule;
          lptrCfg   = lptrCfgModule;
       }
       else{
