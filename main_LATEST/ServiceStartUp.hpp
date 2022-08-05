@@ -24,7 +24,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_ServiceStartUp:
-      INTERFACES_EXPORTED_STARTUP
+      INTERFACES_EXMCALPORTED_SERVICESTARTUP
       public abstract_module
    ,  public class_ServiceStartUp_Functionality
 {
@@ -38,13 +38,13 @@ class module_ServiceStartUp:
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-      FUNC(void, STARTUP_CODE) InitFunction(
-            CONSTP2CONST(ConstModule_TypeAbstract, STARTUP_CONST,       STARTUP_APPL_CONST) lptrConstModule
-         ,  CONSTP2CONST(CfgModule_TypeAbstract,   STARTUP_CONFIG_DATA, STARTUP_APPL_CONST) lptrCfgModule
+      FUNC(void, SERVICESTARTUP_CODE) InitFunction(
+            CONSTP2CONST(ConstModule_TypeAbstract, SERVICESTARTUP_CONST,       SERVICESTARTUP_APPL_CONST) lptrConstModule
+         ,  CONSTP2CONST(CfgModule_TypeAbstract,   SERVICESTARTUP_CONFIG_DATA, SERVICESTARTUP_APPL_CONST) lptrCfgModule
       );
-      FUNC(void, STARTUP_CODE) DeInitFunction (void);
-      FUNC(void, STARTUP_CODE) MainFunction   (void);
-      STARTUP_CORE_FUNCTIONALITIES
+      FUNC(void, SERVICESTARTUP_CODE) DeInitFunction (void);
+      FUNC(void, SERVICESTARTUP_CODE) MainFunction   (void);
+      SERVICESTARTUP_CORE_FUNCTIONALITIES
 };
 
 /******************************************************************************/
@@ -58,7 +58,7 @@ class module_ServiceStartUp:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-extern VAR(module_ServiceStartUp, STARTUP_VAR) ServiceStartUp;
+extern VAR(module_ServiceStartUp, SERVICESTARTUP_VAR) ServiceStartUp;
 
 /******************************************************************************/
 /* EOF                                                                        */

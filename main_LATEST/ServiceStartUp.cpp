@@ -13,18 +13,18 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define STARTUP_AR_RELEASE_VERSION_MAJOR                                       4
-#define STARTUP_AR_RELEASE_VERSION_MINOR                                       3
+#define SERVICESTARTUP_AR_RELEASE_VERSION_MAJOR                                       4
+#define SERVICESTARTUP_AR_RELEASE_VERSION_MINOR                                       3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
-#if(STARTUP_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
-   #error "Incompatible STARTUP_AR_RELEASE_VERSION_MAJOR!"
+#if(SERVICESTARTUP_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
+   #error "Incompatible SERVICESTARTUP_AR_RELEASE_VERSION_MAJOR!"
 #endif
 
-#if(STARTUP_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
-   #error "Incompatible STARTUP_AR_RELEASE_VERSION_MINOR!"
+#if(SERVICESTARTUP_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
+   #error "Incompatible SERVICESTARTUP_AR_RELEASE_VERSION_MINOR!"
 #endif
 
 /******************************************************************************/
@@ -42,14 +42,14 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-VAR(module_ServiceStartUp, STARTUP_VAR) ServiceStartUp;
+VAR(module_ServiceStartUp, SERVICESTARTUP_VAR) ServiceStartUp;
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-FUNC(void, STARTUP_CODE) module_ServiceStartUp::InitFunction(
-      CONSTP2CONST(ConstModule_TypeAbstract, STARTUP_CONST,       STARTUP_APPL_CONST) lptrConstModule
-   ,  CONSTP2CONST(CfgModule_TypeAbstract,   STARTUP_CONFIG_DATA, STARTUP_APPL_CONST) lptrCfgModule
+FUNC(void, SERVICESTARTUP_CODE) module_ServiceStartUp::InitFunction(
+      CONSTP2CONST(ConstModule_TypeAbstract, SERVICESTARTUP_CONST,       SERVICESTARTUP_APPL_CONST) lptrConstModule
+   ,  CONSTP2CONST(CfgModule_TypeAbstract,   SERVICESTARTUP_CONFIG_DATA, SERVICESTARTUP_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == ServiceStartUp_InitCheck)
    if(
@@ -83,14 +83,14 @@ FUNC(void, STARTUP_CODE) module_ServiceStartUp::InitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  STARTUP_E_UNINIT
+         ,  SERVICESTARTUP_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, STARTUP_CODE) module_ServiceStartUp::DeInitFunction(
+FUNC(void, SERVICESTARTUP_CODE) module_ServiceStartUp::DeInitFunction(
    void
 ){
 #if(STD_ON == ServiceStartUp_InitCheck)
@@ -108,14 +108,14 @@ FUNC(void, STARTUP_CODE) module_ServiceStartUp::DeInitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  STARTUP_E_UNINIT
+         ,  SERVICESTARTUP_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, STARTUP_CODE) module_ServiceStartUp::MainFunction(
+FUNC(void, SERVICESTARTUP_CODE) module_ServiceStartUp::MainFunction(
    void
 ){
 #if(STD_ON == ServiceStartUp_InitCheck)
@@ -132,7 +132,7 @@ FUNC(void, STARTUP_CODE) module_ServiceStartUp::MainFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  STARTUP_E_UNINIT
+         ,  SERVICESTARTUP_E_UNINIT
       );
 #endif
    }
@@ -167,7 +167,7 @@ int main(
       cout<<"USAGE: TBD"<<endl;
    }
    else{
-      cout<<endl<<argv[0]<<" Version: R"<<STARTUP_AR_RELEASE_VERSION_MAJOR<<"."<<STARTUP_AR_RELEASE_VERSION_MINOR;
+      cout<<endl<<argv[0]<<" Version: R"<<SERVICESTARTUP_AR_RELEASE_VERSION_MAJOR<<"."<<SERVICESTARTUP_AR_RELEASE_VERSION_MINOR;
    }
 #else
 #endif

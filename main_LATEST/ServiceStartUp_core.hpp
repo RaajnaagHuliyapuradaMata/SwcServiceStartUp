@@ -12,9 +12,9 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define STARTUP_CORE_FUNCTIONALITIES                                           \
+#define SERVICESTARTUP_CORE_FUNCTIONALITIES                                           \
 
-#define STARTUP_CORE_FUNCTIONALITIES_VIRTUAL                                   \
+#define SERVICESTARTUP_CORE_FUNCTIONALITIES_VIRTUAL                                   \
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -25,7 +25,7 @@
 /******************************************************************************/
 class class_ServiceStartUp_Functionality{
    public:
-      STARTUP_CORE_FUNCTIONALITIES_VIRTUAL
+      SERVICESTARTUP_CORE_FUNCTIONALITIES_VIRTUAL
 };
 
 /******************************************************************************/
