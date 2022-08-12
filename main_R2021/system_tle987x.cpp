@@ -1,22 +1,49 @@
-#pragma once
 /******************************************************************************/
-/* File   : infServiceStartUp_Exp.hpp                                                */
+/* File   : Template.hpp                                                      */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "infServiceStartUp_ServiceDet.hpp"
+#include "tle987x.hpp"
+#include "bsl_defines.hpp"
+#include "scu.hpp"
+#include "wdt1.hpp"
+#include "tle_variants.hpp"
+#include "RTE_Components.hpp"
+#include "system_tle987x.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define INTERFACES_EXPORTED_SERVICESTARTUP
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
+#if defined (__CC_ARM) || defined(__ARMCC_VERSION)
+  #if(CONFIGWIZARD == 1)
+    #if(NAC_NAD_EN == 1)
+    const uint32 p_NACNAD __attribute__((section(sNADStart), used)) = (uint32)NAD_NAC;
+    #endif
+  #else
+    #if(BSL_NAC_NAD_EN == 1u)
+    const uint32 p_NACNAD __attribute__((section(sNADStart), used)) = (uint32)BSL_NAD_NAC;
+    #endif
+  #endif
+#elif defined(__IAR_SYSTEMS_ICC__)
+  #if(CONFIGWIZARD == 1)
+    #if(NAC_NAD_EN == 1)
+    const uint32 p_NACNAD @ "NACStart" = (uint32)NAD_NAC;
+    #endif
+  #else
+    #if(BSL_NAC_NAD_EN == 1u)
+    const uint32 p_NACNAD @ "NACStart" = (uint32)BSL_NAD_NAC;
+    #endif
+  #endif
+#else
+  #error Unsupported compiler!
+#endif
 
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
@@ -37,6 +64,14 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
+void SystemInit(void){
+  CPU->VTOR.reg   = ProgFlashStart;
+  SCU_ClkInit();
+  SysTick_Init();
+  WDT1_Init();
+  TIMER2->T2CON1.reg = 0;
+  TIMER21->T2CON1.reg = 0;
+}
 
 /******************************************************************************/
 /* EOF                                                                        */

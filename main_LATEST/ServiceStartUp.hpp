@@ -24,7 +24,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_ServiceStartUp:
-      INTERFACES_EXMCALPORTED_SERVICESTARTUP
+      INTERFACES_EXPORTED_SERVICESTARTUP
       public abstract_module
    ,  public class_ServiceStartUp_Functionality
 {
