@@ -65,7 +65,7 @@
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 void SystemInit(void){
-  CPU->VTOR.reg   = ProgFlashStart;
+  CPU.VTOR.reg   = ProgFlashStart;
   SCU_ClkInit();
   SysTick_Init();
   WDT1_Init();
