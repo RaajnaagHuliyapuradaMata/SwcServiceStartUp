@@ -162,23 +162,19 @@ int main(void){
 }
 
 static void Main_lStartMotor(void){
-   uint32 Error;
-   Error = EMO_ERROR_NONE;
-   if(Error == EMO_ERROR_NONE){
-      Error = Emo_StartMotor((uint32)1u);
-   }
-   if(Error == EMO_ERROR_NONE){
-      __NOP();
-   }
-   else{
+   if(
+         EMO_ERROR_NONE
+      != Emo_StartMotor((uint32)1u)
+   ){
       __NOP();
    }
 }
 
 static void Main_lStopMotor(void){
-   uint32 Error;
-   Error = Emo_StopMotor();
-   if(Error != EMO_ERROR_NONE){
+   if(
+         EMO_ERROR_NONE
+      != Emo_StopMotor()
+   ){
       __NOP();
    }
 }
