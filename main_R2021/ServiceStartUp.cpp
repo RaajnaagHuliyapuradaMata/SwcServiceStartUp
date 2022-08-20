@@ -14,6 +14,7 @@
 #include "Emo_RAM.hpp"
 #include "adc1.hpp"
 #include "wdt1.hpp"
+#include "isr.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -158,6 +159,7 @@ int main(void){
    while(1){
       (void)WDT1_Service();
       Poti_Handler();
+      GPT1_IRQHandler(); //TBD: move to ISR
    }
 }
 
