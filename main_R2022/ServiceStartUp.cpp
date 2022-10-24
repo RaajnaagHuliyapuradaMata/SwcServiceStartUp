@@ -10,6 +10,18 @@
 #include "ServiceStartUp.hpp"
 #include "infServiceStartUp_Imp.hpp"
 
+/*
+#include "types.hpp"
+
+#include "tle_device.hpp"
+
+#include "Mat.hpp" //TBD: remove
+#include "ApplSwcFoc.hpp"
+
+#include "wdt1.hpp"
+#include "isr.hpp" //TBD: move to ISR
+*/
+
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
@@ -47,6 +59,7 @@ VAR(module_ServiceStartUp, SERVICESTARTUP_VAR) ServiceStartUp;
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
+extern void Poti_Handler     (void); //To be moved as per architecture
 FUNC(void, SERVICESTARTUP_CODE) module_ServiceStartUp::InitFunction(
       CONSTP2CONST(ConstModule_TypeAbstract, SERVICESTARTUP_CONST,       SERVICESTARTUP_APPL_CONST) lptrConstModule
    ,  CONSTP2CONST(CfgModule_TypeAbstract,   SERVICESTARTUP_CONFIG_DATA, SERVICESTARTUP_APPL_CONST) lptrCfgModule
@@ -173,7 +186,16 @@ int main(
 #endif
 
    ServiceEcuM.InitFunction();
+/*
+   TLE_Init();
+   Emo_Init();
 
+   while(1){
+      (void)WDT1_Service();
+      Poti_Handler();
+      GPT1_IRQHandler(); //TBD: move to ISR
+   }
+*/
    return e_Shutdown;
 }
 

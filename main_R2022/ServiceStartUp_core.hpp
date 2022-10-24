@@ -1,35 +1,20 @@
 #pragma once
 /******************************************************************************/
-/* File   : Template.hpp                                                      */
+/* File   : ServiceStartUp_core.hpp                                                  */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-//#include "tle987x.hpp"
-//#include "types.hpp"
-//#include "sfr_access.hpp"
+#include "CompilerCfg_ServiceStartUp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define PMU_RESET_STS_POR       (0x80u)
-#define PMU_RESET_STS_PIN       (0x40u)
-#define PMU_RESET_STS_WDT1      (0x20u)
-#define PMU_RESET_STS_ClkWDT    (0x10u)
-#define PMU_RESET_STS_LPR       (0x08u)
-#define PMU_RESET_STS_SLEEP     (0x04u)
-#define PMU_RESET_STS_WAKE      (0x02u)
-#define PMU_RESET_STS_SYS_FAIL  (0x01u)
-#define PMU_VDDEXT_STABLE       (0x80u)
-#define PMU_VDDEXT_OK           (0x40u)
-#define PMU_VDDEXT_OVERLOAD     (0x20u)
-#define PMU_VDDEXT_OVERVOLT     (0x10u)
-#define PMU_VDDEXT_SHORT        (0x08u)
-#define PMU_VDDEXT_IE           (0x04u)
-#define PMU_VDDEXT_CYC_EN       (0x02u)
-#define PMU_VDDEXT_ENABLE       (0x01u)
+#define SERVICESTARTUP_CORE_FUNCTIONALITIES                                           \
+
+#define SERVICESTARTUP_CORE_FUNCTIONALITIES_VIRTUAL                                   \
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -38,6 +23,10 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
+class class_ServiceStartUp_Functionality{
+   public:
+      SERVICESTARTUP_CORE_FUNCTIONALITIES_VIRTUAL
+};
 
 /******************************************************************************/
 /* CONSTS                                                                     */
@@ -54,13 +43,6 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-extern void  PMU_Init               (void);
-extern bool  PMU_VDDEXT_On          (void);
-extern uint8 PMU_Get_Reset_Status   (void);
-extern void  PMU_Clear_Reset_Status (void);
-extern uint8 PMU_VDDEXT_Off         (void);
-extern void  PMU_VDDEXT_Short_Clr   (void);
-extern void  PMU_VDDEXT_Set         (uint8 FlagMask);
 
 /******************************************************************************/
 /* EOF                                                                        */

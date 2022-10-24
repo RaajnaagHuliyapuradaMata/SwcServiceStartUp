@@ -1,18 +1,16 @@
+#pragma once
 /******************************************************************************/
-/* File   : Template.hpp                                                      */
+/* File   : ServiceStartUp.hpp                                                       */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "bsl_defines.hpp"
-#include "scu.hpp"
-#include "wdt1.hpp"
-#include "tle_variants.hpp"
-#include "RTE_Components.hpp"
-
-#include "system_tle987x.hpp"
+#include "ConstServiceStartUp.hpp"
+#include "CfgServiceStartUp.hpp"
+#include "ServiceStartUp_core.hpp"
+#include "infServiceStartUp_Exp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -21,33 +19,33 @@
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
-#if defined (__CC_ARM) || defined(__ARMCC_VERSION)
-  #if(CONFIGWIZARD == 1)
-    #if(NAC_NAD_EN == 1)
-    const uint32 p_NACNAD __attribute__((section(sNADStart), used)) = (uint32)NAD_NAC;
-    #endif
-  #else
-    #if(BSL_NAC_NAD_EN == 1u)
-    const uint32 p_NACNAD __attribute__((section(sNADStart), used)) = (uint32)BSL_NAD_NAC;
-    #endif
-  #endif
-#elif defined(__IAR_SYSTEMS_ICC__)
-  #if(CONFIGWIZARD == 1)
-    #if(NAC_NAD_EN == 1)
-    const uint32 p_NACNAD @ "NACStart" = (uint32)NAD_NAC;
-    #endif
-  #else
-    #if(BSL_NAC_NAD_EN == 1u)
-    const uint32 p_NACNAD @ "NACStart" = (uint32)BSL_NAD_NAC;
-    #endif
-  #endif
-#else
-  #error Unsupported compiler!
-#endif
 
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
+class module_ServiceStartUp:
+      INTERFACES_EXPORTED_SERVICESTARTUP
+      public abstract_module
+   ,  public class_ServiceStartUp_Functionality
+{
+   private:
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+      const ConstServiceStartUp_Type* lptrConst = (ConstServiceStartUp_Type*)NULL_PTR;
+
+   public:
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
+      FUNC(void, SERVICESTARTUP_CODE) InitFunction(
+            CONSTP2CONST(ConstModule_TypeAbstract, SERVICESTARTUP_CONST,       SERVICESTARTUP_APPL_CONST) lptrConstModule
+         ,  CONSTP2CONST(CfgModule_TypeAbstract,   SERVICESTARTUP_CONFIG_DATA, SERVICESTARTUP_APPL_CONST) lptrCfgModule
+      );
+      FUNC(void, SERVICESTARTUP_CODE) DeInitFunction (void);
+      FUNC(void, SERVICESTARTUP_CODE) MainFunction   (void);
+      SERVICESTARTUP_CORE_FUNCTIONALITIES
+};
 
 /******************************************************************************/
 /* CONSTS                                                                     */
@@ -60,18 +58,7 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-
-/******************************************************************************/
-/* FUNCTIONS                                                                  */
-/******************************************************************************/
-void SystemInit(void){
-  CPU.VTOR.reg   = ProgFlashStart;
-  SCU_ClkInit();
-  SysTick_Init();
-  WDT1_Init();
-  TIMER2->T2CON1.reg = 0;
-  TIMER21->T2CON1.reg = 0;
-}
+extern VAR(module_ServiceStartUp, SERVICESTARTUP_VAR) ServiceStartUp;
 
 /******************************************************************************/
 /* EOF                                                                        */
