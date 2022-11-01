@@ -1,5 +1,5 @@
 /******************************************************************************/
-/* File   : Template.hpp                                                      */
+/* File   : system_tle987x.cpp                                                */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
@@ -10,7 +10,6 @@
 #include "scu.hpp"
 #include "wdt1.hpp"
 #include "tle_variants.hpp"
-#include "RTE_Components.hpp"
 
 #include "system_tle987x.hpp"
 
@@ -32,14 +31,8 @@
     #endif
   #endif
 #elif defined(__IAR_SYSTEMS_ICC__)
-  #if(CONFIGWIZARD == 1)
-    #if(NAC_NAD_EN == 1)
-    const uint32 p_NACNAD @ "NACStart" = (uint32)NAD_NAC;
-    #endif
-  #else
-    #if(BSL_NAC_NAD_EN == 1u)
-    const uint32 p_NACNAD @ "NACStart" = (uint32)BSL_NAD_NAC;
-    #endif
+  #if(BSL_NAC_NAD_EN == 1u)
+  const uint32 p_NACNAD @ "NACStart" = (uint32)BSL_NAD_NAC;
   #endif
 #else
   #error Unsupported compiler!

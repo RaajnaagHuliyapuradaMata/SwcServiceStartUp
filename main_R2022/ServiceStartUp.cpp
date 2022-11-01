@@ -13,8 +13,6 @@
 /*
 #include "types.hpp"
 
-#include "tle_device.hpp"
-
 #include "Mat.hpp" //TBD: remove
 #include "ApplSwcFoc.hpp"
 
@@ -187,9 +185,6 @@ int main(
 
    ServiceEcuM.InitFunction();
 /*
-   TLE_Init();
-   Emo_Init();
-
    while(1){
       (void)WDT1_Service();
       Poti_Handler();
