@@ -65,35 +65,65 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-uint8 ProgramPage(uint32 addr, const uint8 *buf, uint8 Branch, uint8 Correct, uint8 FailPageErase){
-  uint8 i;
-  uint8 res;
+uint8 ProgramPage(
+            uint32 addr
+   ,  const uint8 *buf
+   ,        uint8 Branch
+   ,        uint8 Correct
+   ,        uint8 FailPageErase
+){
+   uint8 *pc = (uint8 *) addr;
 
-  uint8 *pc = (uint8 *) addr;
-  CMSIS_Irq_Dis();
-  WDT1_SOW_Service(1u);
-  res = USER_OPENAB(addr);
-  (void)WDT1_Service();
-  if(res == (uint8)0){
-    for(i = 0u; i < (uint8)FlashPageSize; i++){
-      pc[i] = buf[i];
-    }
-    WDT1_SOW_Service(1u);
-    res = USER_PROG((uint8)(((FailPageErase & (uint8)1) << 2u) |
-                            ((Correct & (uint8)1) << 1u) | (Branch & (uint8)1)));
-    (void)WDT1_Service();
-  }
-  CMSIS_Irq_En();
+   CMSIS_Irq_Dis();
+
+   WDT1_SOW_Service(1u);
+   uint8 res = USER_OPENAB(addr);
+   (void)WDT1_Service();
+
+   if(
+         (uint8)0
+      == res
+   ){
+      for(
+         uint8 i = 0u;
+               i < (uint8)FlashPageSize;
+               i ++
+      ){
+         pc[i] = buf[i];
+      }
+      WDT1_SOW_Service(1u);
+
+      res = USER_PROG(
+         (uint8)(
+               (((uint8)1 & FailPageErase) << 2u)
+            |  (((uint8)1 & Correct      ) << 1u)
+            |   ((uint8)1 & Branch       )
+         )
+      );
+
+      (void)WDT1_Service();
+   }
+
+   CMSIS_Irq_En();
+
    return(res);
 }
 
-bool GetCustomerID(const TCustomerID *CustID){
-  bool res;
-  CMSIS_Irq_Dis();
-  WDT1_SOW_Service(1u);
-  res = USER_READ_100TP((uint8)0x11, (uint8)0, (const uint32 *)CustID);
+bool GetCustomerID(
+   const TCustomerID *CustID
+){
+   CMSIS_Irq_Dis();
+
+   WDT1_SOW_Service(1u);
+   bool res = USER_READ_100TP(
+         (uint8)0x11
+      ,  (uint8)0
+      ,  (const uint32*)CustID
+   );
   (void)WDT1_Service();
+
   CMSIS_Irq_En();
+
    return(res);
 }
 
