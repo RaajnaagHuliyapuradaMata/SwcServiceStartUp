@@ -154,6 +154,7 @@ using namespace std;
 #else
 #endif
 
+#include "ReSimFm.hpp"
 int main(
 #if(STD_ON == _ReSIM)
       int   argc
@@ -173,6 +174,7 @@ int main(
 #endif
 
    ServiceEcuM.InitFunction();
+   ReSim.DeInitFunction(); //TBD: make well sequenced shutdown process
 
    return e_Shutdown;
 }
