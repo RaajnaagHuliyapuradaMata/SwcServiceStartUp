@@ -168,7 +168,7 @@ int main(
       cout<<"USAGE: TBD"<<endl;
    }
    else{
-      cout<<endl<<argv[0]<<" Version: R"<<SERVICESTARTUP_AR_RELEASE_VERSION_MAJOR<<"."<<SERVICESTARTUP_AR_RELEASE_VERSION_MINOR;
+      cout<<endl<<argv[0]<<" Version: R"<<SERVICESTARTUP_AR_RELEASE_VERSION_MAJOR<<"."<<SERVICESTARTUP_AR_RELEASE_VERSION_MINOR<<endl;
    }
 #else
 #endif
