@@ -1,13 +1,13 @@
 #pragma once
 /******************************************************************************/
-/* File   : ServiceStartUp.hpp                                                       */
+/* File   : ServiceStartUp.hpp                                                */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "ConstServiceStartUp.hpp"
+#include "infServiceStartUp_ServiceNvM_Types.hpp"
 #include "CfgServiceStartUp.hpp"
 #include "ServiceStartUp_core.hpp"
 #include "infServiceStartUp_Exp.hpp"
