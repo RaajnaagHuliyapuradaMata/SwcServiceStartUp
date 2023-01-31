@@ -7,25 +7,17 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
+#include "ServiceStartUp_Version.hpp"
 #include "ServiceStartUp.hpp"
 #include "infServiceStartUp_Imp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define SERVICESTARTUP_AR_RELEASE_VERSION_MAJOR                                4
-#define SERVICESTARTUP_AR_RELEASE_VERSION_MINOR                                3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
-#if(SERVICESTARTUP_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
-   #error "Incompatible SERVICESTARTUP_AR_RELEASE_VERSION_MAJOR!"
-#endif
-
-#if(SERVICESTARTUP_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
-   #error "Incompatible SERVICESTARTUP_AR_RELEASE_VERSION_MINOR!"
-#endif
 
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
@@ -48,7 +40,7 @@ VAR(module_ServiceStartUp, SERVICESTARTUP_VAR) ServiceStartUp;
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 FUNC(void, SERVICESTARTUP_CODE) module_ServiceStartUp::InitFunction(
-      CONSTP2CONST(ConstModule_TypeAbstract, SERVICESTARTUP_CONST,       SERVICESTARTUP_APPL_CONST) lptrConstModule
+      CONSTP2CONST(ConstModule_TypeAbstract, SERVICESTARTUP_CONST,       SERVICESTARTUP_APPL_CONST) lptrNvMBlocksRomModule
    ,  CONSTP2CONST(CfgModule_TypeAbstract,   SERVICESTARTUP_CONFIG_DATA, SERVICESTARTUP_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == ServiceStartUp_InitCheck)
@@ -58,10 +50,10 @@ FUNC(void, SERVICESTARTUP_CODE) module_ServiceStartUp::InitFunction(
    ){
 #endif
       if(
-            (NULL_PTR != lptrConstModule)
+            (NULL_PTR != lptrNvMBlocksRomModule)
          && (NULL_PTR != lptrCfgModule)
       ){
-         lptrConst = (const ConstServiceStartUp_Type*)lptrConstModule;
+         lptrNvMBlocksRom = lptrNvMBlocksRomModule;
          lptrCfg   = lptrCfgModule;
       }
       else{
