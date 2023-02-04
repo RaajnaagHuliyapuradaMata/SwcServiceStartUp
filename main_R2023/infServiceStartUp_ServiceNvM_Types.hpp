@@ -10,9 +10,11 @@
 class NvM_BlocksRom_ServiceStartUp_Type:
       public ConstModule_TypeAbstract
 {
-/******************************************************************************/
-/* CONSTS                                                                     */
-/******************************************************************************/
+};
+
+class NvM_BlocksNv_ServiceStartUp_Type:
+      public CfgModule_TypeAbstract
+{
 };
 
 /******************************************************************************/
