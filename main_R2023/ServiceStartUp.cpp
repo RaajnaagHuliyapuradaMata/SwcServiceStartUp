@@ -140,12 +140,6 @@ t_Shutdown e_Shutdown = E_SHUTDOWN_NORMAL;
 
 #include "ServiceEcuM.hpp"
 
-#if(STD_ON == _ReSIM)
-#include <iostream>
-using namespace std;
-#else
-#endif
-
 #include "ReSimFm.hpp"
 int main(
 #if(STD_ON == _ReSIM)
