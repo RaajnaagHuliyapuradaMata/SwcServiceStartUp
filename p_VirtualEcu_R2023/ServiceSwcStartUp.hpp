@@ -1,20 +1,20 @@
 #pragma once
 /******************************************************************************/
-/* File   : ServiceStartUp.hpp                                                */
+/* File   : ServiceSwcStartUp.hpp                                             */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "CfgServiceStartUp.hpp"
+#include "CfgServiceSwcStartUp.hpp"
 #include "ReSim.hpp"
 
 
 /******************************************************************************/
 /* #FUNCTIONS                                                                 */
 /******************************************************************************/
-extern FUNC(int, SERVICESTARTUP_CODE) main(
+extern FUNC(int, SERVICESWCSTARTUP_CODE) main(
 #if(STD_ON == _ReSIM)
       int   argc
    ,  char* argv[]
