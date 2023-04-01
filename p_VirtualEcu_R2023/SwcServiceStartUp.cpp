@@ -1,5 +1,5 @@
 /******************************************************************************/
-/* File   : ServiceSwcStartUp.cpp                                             */
+/* File   : SwcServiceStartUp.cpp                                             */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
@@ -8,14 +8,14 @@
 /******************************************************************************/
 #include "Std_Types.hpp"
 
-#include "ServiceSwcStartUp.hpp"
+#include "SwcServiceStartUp.hpp"
 
-#include "infServiceSwcEcuMServiceSwcStartUp.hpp"
+#include "infSwcServiceEcuMSwcServiceStartUp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define OS_MAIN FUNC(int, SERVICESWCSTARTUP_CODE) main //TBD: move to Os.h
+#define OS_MAIN FUNC(int, SWCSERVICESTARTUP_CODE) main //TBD: move to Os.h
 
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
@@ -57,8 +57,8 @@ OS_MAIN(
 #else
 #endif
 
-   infServiceSwcEcuMServiceSwcStartUp_InitFunction();
-   infServiceSwcEcuMServiceSwcStartUp_DeInitFunction();
+   infSwcServiceEcuMSwcServiceStartUp_InitFunction();
+   infSwcServiceEcuMSwcServiceStartUp_DeInitFunction();
 
    return e_Shutdown;
 }
