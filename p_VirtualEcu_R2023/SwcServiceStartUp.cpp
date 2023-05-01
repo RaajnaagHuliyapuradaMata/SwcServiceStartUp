@@ -75,8 +75,6 @@ OS_MAIN(
 #endif
 
    infSwcServiceEcuMSwcServiceStartUp_InitFunction();
-   infSwcServiceEcuMSwcServiceStartUp_DeInitFunction();
-
    return e_Shutdown;
 }
 
