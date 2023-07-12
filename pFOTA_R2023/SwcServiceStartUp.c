@@ -28,6 +28,7 @@
 #include "SwcServiceStartUp.h"
 
 #include "CfgSwcServiceStartUp.h"
+#include "infSwcServiceDetSwcServiceStartUp.h"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -57,15 +58,6 @@ static Type_LibAutosarStateMachine_tContext ltContextStateMachine;
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-void SwcServiceStartUp_vHookError( //TBD: Move to Det
-   Type_SwcServiceStartUp_eError leError
-){
-   UNUSED(leError);
-   while(1){
-      ;
-   }
-}
-
 int main(void){ /*BootManager*/
    LibAutosarStateMachine_vInitFunction(
         &ltContextStateMachine
@@ -84,7 +76,12 @@ int main(void){ /*BootManager*/
       );
       LibAutosarStateMachineState_vRunnable(&ltContextStateMachine);
    }
-   SwcServiceStartUp_vHookError(SwcServiceStartUp_eError_END_OF_MAIN_REACHED);
+   SwcServiceDet_tReportError(
+         SwcServiceDet_eIdModuleSwcServiceStartUp
+      ,  infSwcServiceDetSwcServiceStartUp_dIdInstance_TBD
+      ,  infSwcServiceDetSwcServiceStartUp_dIdApi_TBD
+      ,  SwcApplStartUp_eError_END_OF_MAIN_REACHED
+   );
    return 0;
 }
 
