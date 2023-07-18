@@ -1,6 +1,6 @@
 #pragma once
 /******************************************************************************/
-/* File   : SwcServiceStartUp.h                                               */
+/* File   : Types_SwcServiceStartUp.h                                         */
 /*                                                                            */
 /* Author : Raajnaag HULIYAPURADA MATA                                        */
 /*                                                                            */
@@ -36,6 +36,19 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
+typedef uint32 SwcServiceStartUp_tAddressHeader;
+typedef void (*SwcServiceStartUp_tvfptr)(void);
+
+typedef struct{
+   uint32                           u32Magic;
+   uint16                           u32MajorVersion;
+   uint16                           u32MinorVersion;
+   SwcServiceStartUp_tAddressHeader tAddressHeader;
+   SwcServiceStartUp_tvfptr         main_vfptrBoot;
+   SwcServiceStartUp_tvfptr         main_vfptrAppl;
+   uint32                           u32Checksum;
+   uint32                           u32MagicEnd;
+}Type_SwcServiceStartUp_stHeader;
 
 /******************************************************************************/
 /* CONSTS                                                                     */

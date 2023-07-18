@@ -25,7 +25,7 @@
 /******************************************************************************/
 #include "Std_Types.h"
 
-#include "SwcServiceStartUp.h"
+#include "Types_SwcServiceStartUp.h"
 
 #include "CfgSwcServiceStartUp.h"
 #include "infSwcServiceDetSwcServiceStartUp.h"
@@ -80,13 +80,13 @@ int main(void){ /*BootManager*/
          SwcServiceDet_eIdModuleSwcServiceStartUp
       ,  infSwcServiceDetSwcServiceStartUp_dIdInstance_TBD
       ,  infSwcServiceDetSwcServiceStartUp_dIdApi_TBD
-      ,  SwcApplStartUp_eError_END_OF_MAIN_REACHED
+      ,  SwcServiceStartUp_eError_END_OF_MAIN_REACHED
    );
    return 0;
 }
 
 /*
-int fblmain(void){ //Bootloader
+int startupmain(void){ //Bootloader
    SwcServiceStartUpInitPowerOn();
    SwcServiceStartUpInit(kSwcServiceStartUpInitBaseInitialization);
    SwcServiceStartUpCheckProgrammingRequest();
