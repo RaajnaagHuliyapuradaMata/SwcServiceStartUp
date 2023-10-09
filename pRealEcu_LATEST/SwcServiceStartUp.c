@@ -65,7 +65,6 @@
 /******************************************************************************/
 OS_MAIN(){
    infMcalGptSwcApplEcuM_InitFunction();
-   infSwcServiceOsSwcApplEcuM_InitFunction();
    infMcalDioSwcApplEcuM_vInitFunction();
    infMcalAdcSwcApplEcuM_vInitFunction();
    infMcalMcuSwcApplEcuM_InitFunction();
