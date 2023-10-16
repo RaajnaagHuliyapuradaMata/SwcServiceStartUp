@@ -1,5 +1,6 @@
+#pragma once
 /******************************************************************************/
-/* File   : SwcServiceStartUp.hpp                                             */
+/* File   : SwcServiceStartUp.h                                               */
 /*                                                                            */
 /* Author : Raajnaag HULIYAPURADA MATA                                        */
 /*                                                                            */
@@ -27,6 +28,7 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#define OS_MAIN()                                                 int main(void)
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -51,19 +53,6 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-extern uint8                                        SwcServiceStartUp_u8GetEcuProgramInformationPart1 (uint8* lptru8Data,  uint8 lu8Len, Type_CfgSwcServiceStartUp_eProgramSw leProgramSw);
-extern uint8                                        SwcServiceStartUp_u8GetEcuProgramInformationPart2 (uint8* lptru8Data,  uint8 lu8Len, Type_CfgSwcServiceStartUp_eProgramSw leProgramSw);
-extern uint8                                        SwcServiceStartUp_u8GetHmacSignature              (uint8* pBuffer, uint8 lu8Len, Type_CfgSwcServiceStartUp_eProgramSw leProgramSw);
-extern uint8                                        SwcServiceStartUp_u8GetComponentAndSwType         (uint8* pBuffer, uint8 lu8Len, Type_CfgSwcServiceStartUp_eProgramSw leProgramSw);
-extern Type_CfgSwcServiceStartUp_stDescriptorBlock* SwcServiceStartUp_ptrstGetDescriptorBlock         (Type_CfgSwcServiceStartUp_eProgramSw leProgramSw);
-extern uint32*                                      SwcServiceStartUp_ptru32GetPointerToSHA256Hash    (Type_CfgSwcServiceStartUp_eProgramSw leProgramSw);
-extern uint8                                        SwcServiceStartUp_u8GetPcbaId                     (uint8* pBuffer, uint8 lu8Len, Type_CfgSwcServiceStartUp_eProgramSw leProgramSw);
-extern uint8                                        SwcServiceStartUp_u8GetComponentId                (uint8* pBuffer, uint8 lu8Len, Type_CfgSwcServiceStartUp_eProgramSw leProgramSw);
-extern uint8                                        SwcServiceStartUp_u8GetModeId                     (uint8* pBuffer, uint8 lu8Len, Type_CfgSwcServiceStartUp_eProgramSw leProgramSw);
-extern uint8                                        SwcServiceStartUp_u8GetAuxId                      (uint8* pBuffer, uint8 lu8Len, Type_CfgSwcServiceStartUp_eProgramSw leProgramSw);
-extern uint8                                        SwcServiceStartUp_u8GetGenealogyVersion           (uint8* pBuffer, uint8 lu8Len, Type_CfgSwcServiceStartUp_eProgramSw leProgramSw);
-extern uint8                                        SwcServiceStartUp_u8GetTfsChangeset               (uint8* pBuffer, uint8 lu8Len, Type_CfgSwcServiceStartUp_eProgramSw leProgramSw);
-extern uint8                                        SwcServiceStartUp_u8DigitToAscii                  (uint8 ucDigit);
 
 /******************************************************************************/
 /* EOF                                                                        */
