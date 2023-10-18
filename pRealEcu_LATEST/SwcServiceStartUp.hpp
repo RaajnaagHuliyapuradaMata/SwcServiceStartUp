@@ -1,6 +1,6 @@
 #pragma once
 /******************************************************************************/
-/* File   : SwcServiceStartUp.h                                               */
+/* File   : SwcServiceStartUp.hpp                                             */
 /*                                                                            */
 /* Author : Raajnaag HULIYAPURADA MATA                                        */
 /*                                                                            */
@@ -28,7 +28,6 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define OS_MAIN()                                                 int main(void)
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -53,6 +52,20 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
+extern uint8             VERSION_GetEcuProgramInformationPart1 (uint8* ucData,  uint8 ucLen, uint8 ucApplFbl);
+extern uint8             VERSION_GetEcuProgramInformationPart2 (uint8* ucData,  uint8 ucLen, uint8 ucApplFbl);
+extern uint8             VERSION_GetHmacSignature              (uint8* pBuffer, uint8 ucLen, uint8 ucApplFbl);
+extern uint8             VERSION_GetComponentAndSwType         (uint8* pBuffer, uint8 ucLen, uint8 ucApplFbl);
+extern tDescriptorBlock* VERSION_GetPointerToDescriptorBlock   (uint8  ucApplFbl);
+extern uint32*           VERSION_GetPointerToSHA256Hash        (uint8  ucApplFbl);
+extern uint8             VERSION_GetPcbaId                     (uint8* pBuffer, uint8 ucLen, uint8 ucApplFbl);
+extern uint8             VERSION_GetComponentId                (uint8* pBuffer, uint8 ucLen, uint8 ucApplFbl);
+extern uint8             VERSION_GetModeId                     (uint8* pBuffer, uint8 ucLen, uint8 ucApplFbl);
+extern uint8             VERSION_GetAuxId                      (uint8* pBuffer, uint8 ucLen, uint8 ucApplFbl);
+extern uint8             VERSION_GetGenealogyVersion           (uint8* pBuffer, uint8 ucLen, uint8 ucApplFbl);
+extern uint8             VERSION_GetTfsChangeset               (uint8* pBuffer, uint8 ucLen, uint8 ucApplFbl);
+extern uint8             VERSION_ucDigitToAscii                (uint8  ucDigit);
+
 
 /******************************************************************************/
 /* EOF                                                                        */
