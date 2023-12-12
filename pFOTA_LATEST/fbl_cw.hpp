@@ -11,7 +11,7 @@
 #include "FblCw_Cfg.hpp"
 #include "FblCw_Lcfg.hpp"
 
-#define FBLCW_VENDOR_ID              30U
+#define FBLCW_VENDOR_ID              1U
 #define FBLCW_MODULE_ID              255U
 
 #define FBLCW_AR_RELEASE_MAJOR_VERSION       4U
