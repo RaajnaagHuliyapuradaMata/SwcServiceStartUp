@@ -98,7 +98,7 @@ OS_MAIN(){
 #define CfgSwcServiceStartUp_dVersionProtocolDL            ((uint16) 0x0001)
 #define cTFS_CHANGESET                         {'C','S','0','0','1','9','3','3'}
 
-#ifndef _EcuVirtual
+#ifndef CfgProject_dSwitchReSim
 #pragma ghs startdata
 #pragma ghs section rodata=".roAPP_METADATA"
 #endif
@@ -137,7 +137,7 @@ const tDescriptorBlock DescriptorBlock = {
    ,  {0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA}
    ,  {0xCC, 0xCC}
 };
-#ifndef _EcuVirtual
+#ifndef CfgProject_dSwitchReSim
 #pragma ghs enddata
 #endif
 
